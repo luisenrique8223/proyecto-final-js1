@@ -19,11 +19,12 @@ var ocho = document.getElementById('8');
 var nueve = document.getElementById('9');
 var punto = document.getElementById('punto');
 var igual= document.getElementById('igual');
-var teclado=document.getElementsByClassName('tecla')
 var aux2= parseFloat(display.innerHTML);
-
+var botones = document.getElementsByClassName("tecla");
 var aux=0;
 var operacion="";
+
+
 
 document.getElementById('1').addEventListener('click', function(){
 if(display.innerHTML=="0")
@@ -152,7 +153,19 @@ document.getElementById('igual').addEventListener('click', function(){
         display.innerHTML=  parseFloat(aux)/parseFloat(display.innerHTML)
       }
 display.innerHTML=display.innerHTML.substring(0,8)
-})
+});
+
+var botones = document.getElementsByClassName("tecla");
+for (let i = 0; i < botones.length; i++) {
+botones[i].addEventListener("mousedown", function () {
+botones[i].style.transform = "scale(.95, .95)";
+});
+botones[i].addEventListener("mouseup", function () {
+botones[i].setAttribute("style", "transform:scale(1, 1)");
+});
+};
+
+
 
 document.getElementById('on').addEventListener('click', function(){
 limpiar();
